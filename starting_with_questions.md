@@ -5,7 +5,7 @@ Answer the following questions and provide the SQL queries used to find the answ
 
 
 SQL Queries:
-SELECT country, city, SUM(totaltransactionrevenue::integer) AS totalrevenue
+<br>SELECT country, city, SUM(totaltransactionrevenue::integer) AS totalrevenue
 FROM allsessions
 WHERE totaltransactionrevenue IS NOT NULL
 AND city != ''
@@ -15,7 +15,7 @@ ORDER BY totalrevenue DESC;
 
 
 Answer: 
-"country"	"city"	"totalrevenue"
+<br>"country"	"city"	"totalrevenue"
 "United States"	"Chicago"	123940000
 "Canada"	"Toronto"	82160000
 "United States"	"New York"	51330000
@@ -31,7 +31,7 @@ Answer:
 
 
 SQL Queries:
-SELECT a.country, a.city, AVG(p.orderedquantity)AS Avgorderedquantity
+<br>SELECT a.country, a.city, AVG(p.orderedquantity)AS Avgorderedquantity
 FROM allsessions a
 JOIN products p
 ON a.productsku = p.sku
@@ -43,7 +43,7 @@ ORDER BY AVG(p.orderedquantity)DESC
 
 
 Answer:
-"country"	"city"	"avgorderedquantity"
+<br>"country"	"city"	"avgorderedquantity"
 "United States"	"Detroit"	10075.0000000000000000
 "United States"	"Chicago"	534.5000000000000000
 "United States"	"Mountain View"	117.0000000000000000
@@ -58,8 +58,8 @@ Answer:
 
 **Question 3: Is there any pattern in the types (product categories) of products ordered from visitors in each city and country?**
 
-
-SELECT a.country, a.city, a.v2productcategory, SUM(p.orderedquantity) AS numberoforders
+SQL queries:
+<br>SELECT a.country, a.city, a.v2productcategory, SUM(p.orderedquantity) AS numberoforders
 FROM allsessions a
 JOIN products p 
 ON a.productsku = p.sku
@@ -71,7 +71,7 @@ ORDER BY SUM(p.orderedquantity)DESC
 
 
 Answer:
-"country"	"city"	"v2productcategory"	"numberoforders"
+<br>"country"	"city"	"v2productcategory"	"numberoforders"
 "United States"	"Detroit"	"Drinkware"	10075
 "United States"	"Chicago"	"Lifestyle"	1046
 "United States"	"Mountain View"	"Apparel"	234
@@ -89,7 +89,7 @@ Answer:
 
 
 SQL Queries:
-SELECT a.country, a. city, a.v2productname, SUM(p.orderedquantity) AS totalsold
+<br>SELECT a.country, a. city, a.v2productname, SUM(p.orderedquantity) AS totalsold
 FROM allsessions a
 JOIN products p 
 ON a.productsku = p.sku
@@ -106,7 +106,7 @@ ORDER BY a.country, a.city;
 
 
 Answer:
-"United States"	"Detroit"	"Google 22 oz Water Bottle"	10075
+<br>"United States"	"Detroit"	"Google 22 oz Water Bottle"	10075
 
 --Google 22 oz Water Bottle is returned as the top-selling product and 
 --it is under the Drinkware productcategory, which was the most ordered.
@@ -117,7 +117,7 @@ Answer:
 
 **Question 5: Can we summarize the impact of revenue generated from each city/country?**
 
-SQL Queries:
+<br>SQL Queries:
 SELECT country, city, SUM(totaltransactionrevenue::integer)AS total_revenue
 FROM allsessions
 WHERE totaltransactionrevenue IS NOT NULL
@@ -128,7 +128,7 @@ ORDER BY total_revenue DESC;
 
 
 Answer:
-"country"	"city"	"total_revenue"
+<br>"country"	"city"	"total_revenue"
 "United States"	"Chicago"	123940000
 "Canada"	"Toronto"	82160000
 "United States"	"New York"	51330000
