@@ -1,7 +1,7 @@
 Question 1: Total sales of each product
 
 SQL Queries:
-SELECT p.name, SUM (a.productprice * p.orderedquantity) AS total_sales
+<br>SELECT p.name, SUM (a.productprice * p.orderedquantity) AS total_sales
 FROM products p
 JOIN allsessions a
 ON p.sku = a.productsku
@@ -10,7 +10,7 @@ GROUP BY p.name
 ORDER BY total_sales DESC;
 
 Answer: Query returned 17 products with their total sales
-"name"	"total_sales"
+<br>"name"	"total_sales"
 " 22 oz Water Bottle"	30225
 " Sunglasses"	28708
 " Men's Vintage Badge Tee Sage"	2123
@@ -31,10 +31,11 @@ Answer: Query returned 17 products with their total sales
 
 
 
-Question 2: Average order value of each product
+Question 2: 
+<br>Average order value of each product
 
 SQL Queries:
-SELECT p.name, AVG (a.productprice * p.orderedquantity) AS avg_sales
+<br>SELECT p.name, AVG (a.productprice * p.orderedquantity) AS avg_sales
 FROM products p
 JOIN allsessions a
 ON p.sku = a.productsku
@@ -42,33 +43,34 @@ WHERE (a.productprice * p.orderedquantity) > 0
 GROUP BY p.name
 ORDER BY avg_sales DESC;
 
-Answer:Query returned same number of rows as question 1 but with their average sales values
+Answer:
+<br>Query returned same number of rows as question 1 but with their average sales values
 
 
 
 Question 3: The most expensive product
 
 SQL Queries:
-SELECT v2productname, productprice
+<br>SELECT v2productname, productprice
 FROM allsessions
 WHERE productprice = (SELECT MAX(productprice)FROM allsessions)
 
 Answer:
-"Google Women's Zip Hoodie Grey"	140
+<br>"Google Women's Zip Hoodie Grey"	140
 
 
 
 Question 4: The least expensive product
 
 SQL Queries:
-SELECT v2productname, productprice
+<br>SELECT v2productname, productprice
 FROM allsessions
 WHERE productprice > 0
 ORDER BY productprice 
 LIMIT 1
 
 Answer:
-"v2productname"	"productprice"
+<br>"v2productname"	"productprice"
 "Google Sunglasses"	3
 
 
@@ -77,7 +79,7 @@ Answer:
 Question 5:Average order value for each month in 2017 
 
 SQL Queries:
-SELECT EXTRACT (MONTH FROM date)AS orderdate, 
+<br>SELECT EXTRACT (MONTH FROM date)AS orderdate, 
 AVG (a.productprice * p.orderedquantity) AS avg_sales
 FROM allsessions a
 JOIN products p 
@@ -87,7 +89,8 @@ AND orderedquantity > 0
 GROUP BY EXTRACT (MONTH FROM date)
 ORDER BY avg_sales DESC;
 
-Answer: The month of July, 2017 has the most Ave. order value
+Answer:
+<br>The month of July, 2017 has the most Ave. order value
 6	30225.000000000000
 1	22022.000000000000
 5	1389.5000000000000000
